@@ -58,6 +58,9 @@ final class PasswordRegexpListener
         } elseif ('FE' === TL_MODE && FE_USER_LOGGED_IN) {
             $userId = (int) FrontendUser::getInstance()->id;
             $userEntity = FrontendUser::class;
+        } elseif ('FE' === TL_MODE) {
+            $userId = null;
+            $userEntity = FrontendUser::class;
         } elseif (null !== $dc) {
             if ('tl_member' === $dc->table) {
                 $userId = (int) $dc->id;
